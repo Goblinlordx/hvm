@@ -5,10 +5,15 @@
 /*
 *  Test 2
 */
-@asdfsdf
-(asdf)(adsf)
+@adsf2
+(asdf)
+// Test
+(adsf2)
 0;asdf
+a;asdf
 a=a;asdf
+a=a;asdf
+(asdf3)
 a=a+a;asdf
 a=a-a;asdf
 asdf;asdf

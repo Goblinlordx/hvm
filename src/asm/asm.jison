@@ -4,6 +4,7 @@
 %lex
 %%
 
+/* \n                                      return 'NL' */
 \s+                                     /* skip whitespace */
 "//".*                                  /* skip single line comment */
 [/][*][^*]*[*]+([^/*][^*]*[*]+)*[/]     /* skip multiline comment */
@@ -23,31 +24,29 @@
 
 /* operator associations and precedence */
 
-%left 'NEWLINE'
-
 %start program
 
 %% /* language grammar */
 
 program
     : instructions EOF
-        {return console.log($1); return $1;}
+        {return $1;}
     ;
 
 instructions
     : instructions instruction
         {$$ = $1.concat($2)}
-    | instruction 
+    | instruction
         {$$ = [$1]}
     ;
 
 instruction
     : ains
-        {$$ = $1;}
+        {$$ = Object.assign($1, {loc: [@$.first_line, @$.first_column, @$.last_line, @$.last_column] });}
     | cins
-        {$$ = $1;}
+        {$$ = Object.assign($1, {loc: [@$.first_line, @$.first_column, @$.last_line, @$.last_column] });}
     | label
-        {$$ = $1;}
+        {$$ = Object.assign($1, {loc: [@$.first_line, @$.first_column, @$.last_line, @$.last_column] });}
     ;
 
 label

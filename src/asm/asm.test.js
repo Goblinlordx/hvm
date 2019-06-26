@@ -1,4 +1,5 @@
 // import { tokenize, parser } from "./";
+import './'
 
 // const basicTokenizerTests = [
 //     ["tokenize skips comment", "// Test Comment"],
@@ -74,4 +75,11 @@
 //     });
 // });
 
-it('test', ()=>{})
+it('test', ()=>{
+    // console.log(parser.parse("@123"));
+    // console.log(parser.parse("@a123"));
+    // console.log(parser.parse(`@R0
+    // 0;a123 /*
+    // test
+    // */`));
+})
