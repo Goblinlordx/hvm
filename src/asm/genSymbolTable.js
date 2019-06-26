@@ -1,15 +1,26 @@
+const defaultSymbols = () => Array(15).fill(null).map((_, i) => i).reduce((a, n) => {
+    a[`R${n}`] = {value: n, loc: []};
+    return a;
+}, {
+    SCREEN: {value: 16384, loc: []},
+    KBD: {value: 24576, loc: []},
+    SP: {value: 0, loc: []},
+    LCL: {value: 1, loc: []},
+    THIS: {value: 3, loc: []},
+    THAT: {value: 4, loc: []},
+});
 
-export default tokens => {
+export default nodes => {
     let idx = 0;
-    const tbl = tokens.reduce((a, {type, symbol, loc}, i) => {
+    const tbl = nodes.reduce((a, {type, symbol, loc}, i) => {
         if (type === "LABEL") {
             if (a[symbol] && a[symbol].value) throw new Error(`Duplicate symbol: ${symbol} [${loc[0]}:${loc[1]}]`);
             if (a[symbol]) {
-                a[symbol].value = i-idx+1;
+                a[symbol].value = i-idx;
                 a[symbol].loc.push(loc);
             } else {
                 a[symbol] = {
-                    value: i-idx+1,
+                    value: i-idx,
                     loc: [loc],
                 };
             }
@@ -24,11 +35,14 @@ export default tokens => {
             }
         }
         return a;
-    }, {})
-    const undef = Object.keys(tbl).filter(k => tbl[k].value === undefined);
-    if (undef.length) {
-        const {loc} = tbl[undef[0]];
-        throw new Error(`Undefined symbol: ${undef[0]} [${loc[0][0]}:${loc[0][1]}]`)
-    }
+    }, defaultSymbols())
+
+    // Assign address to variables
+    let vIdx = 16;
+    Object.keys(tbl).forEach(k => {
+        if (tbl[k].value !== undefined) return;
+        tbl[k].value = vIdx;
+        vIdx++;
+    });
     return tbl;
 };
