@@ -1,4 +1,9 @@
-const pad = n => ("0".repeat(16) + n.toString(2)).slice(-16);
+const toBin = n => {
+    const lower = (n & 0xFF00) >>> 8;
+    const upper = (n & 0xFF) >>> 0;
+    const s = String.fromCharCode(upper) + String.fromCharCode(lower);
+    return s;
+}
 const aPrefix = n => n & 0xFFFF >>> 1;
 const cPrefix = n => n | 7 << (16 - 3);
 
@@ -60,7 +65,7 @@ export default table => node => {
         if (value === null) {
             value = table[node.symbol].value;
         }
-        return pad(aPrefix(value));
+        return toBin(aPrefix(value));
     }
     if (node.type === 'C_INS') {
         let store;
@@ -75,7 +80,7 @@ export default table => node => {
         }
         const compute = COMPUTE_CODES[node.compute];
         if (!compute) throw new Error(`Invalid compute instruction: ${node.compute} [${node.loc[0]}:${node.loc[1]}]`);
-        return pad(cPrefix((compute << 6) | (store << 3)) | jump);
+        return toBin(cPrefix((compute << 6) | (store << 3)) | jump);
     }
     throw new Error(`Unknown node type: ${node.type}`);
 }
