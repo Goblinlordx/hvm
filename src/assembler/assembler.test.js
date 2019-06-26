@@ -11,7 +11,7 @@ const RECT_HACK = String(fs.readFileSync("./src/examples/Rect.hack"));
 const PONG_ASM = String(fs.readFileSync("./src/examples/Pong.asm"));
 const PONG_HACK = String(fs.readFileSync("./src/examples/Pong.hack"));
 
-it("assembles Max program correctly", () => {
+it("assembles Add program correctly", () => {
   expect(btohack(assemble(ADD_ASM))).toEqual(ADD_HACK);
 });
 
