@@ -9,11 +9,19 @@
 (asdf)
 // Test
 (adsf2)
-0;asdf
+A;asdf
 a;asdf
+0;asdf
+a=0;asdf
+a=1;asdf
+a=-1;asdf
 a=a;asdf
 a=a;asdf
+a=a-1;asdf
+a=a+1;asdf
+a=!a;asdf
 (asdf3)
 a=a+a;asdf
 a=a-a;asdf
+a;asdf
 asdf;asdf

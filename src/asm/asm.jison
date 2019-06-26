@@ -8,8 +8,12 @@
 \s+                                     /* skip whitespace */
 "//".*                                  /* skip single line comment */
 [/][*][^*]*[*]+([^/*][^*]*[*]+)*[/]     /* skip multiline comment */
+[admADM]"="                             return 'STORE'
 [0-9]+                                  return 'NUMBER'
 "-"                                     return 'MINUS'
+"!"                                     return 'NOT'
+"&"                                     return 'AND'
+"|"                                     return 'OR'
 "+"                                     return 'PLUS'
 "="                                     return 'STORE'
 "@"                                     return 'AT'
@@ -55,16 +59,29 @@ label
     ;
 
 cins
-    : NUMBER COLON SYMBOL
-        {$$ = { type: 'C_INS', store: parseInt($1, 10), store_symbol: null, jump: $3 }}
-    | SYMBOL STORE SYMBOL MINUS SYMBOL COLON SYMBOL
-        {$$ = { type: 'C_INS', store: $1, compute: $3 + $4 + $5, jump: $7 }}
-    | SYMBOL STORE SYMBOL PLUS SYMBOL COLON SYMBOL
-        {$$ = { type: 'C_INS', store: $1, compute: $3 + $4 + $5, jump: $7 }}
-    | SYMBOL STORE SYMBOL COLON SYMBOL
-        {$$ = { type: 'C_INS', store: $1, compute: $3, jump: $5 }}
-    | SYMBOL COLON SYMBOL
-        {$$ = { type: 'C_INS', store: null, store_symbol: $1, jump: $3 }}
+    : STORE compute SYMBOL
+        {$$ = { type: 'C_INS', store: $1.slice(0, -1), compute: $2, jump: $3 }}
+    | compute SYMBOL
+        {$$ = { type: 'C_INS', compute: $1, jump: $2 }}
+    ;
+
+compute
+    : NOT SYMBOL COLON
+        {$$ = $1 + $2}
+    | SYMBOL MINUS SYMBOL COLON
+        {$$ = $1 + $2 + $3}
+    | SYMBOL MINUS NUMBER COLON
+        {$$ = $1 + $2 + $3}
+    | SYMBOL PLUS SYMBOL COLON
+        {$$ = $1 + $2 + $3}
+    | SYMBOL PLUS NUMBER COLON
+        {$$ = $1 + $2 + $3}
+    | SYMBOL COLON
+        {$$ = $1}
+    | MINUS NUMBER COLON
+        {$$ = $1 + $2}
+    | NUMBER COLON
+        {$$ = $1}
     ;
 
 ains
