@@ -5,7 +5,7 @@
 %%
 
 \n                                      return 'NL';
-"//".*\n                                return 'NL';
+"//".*                                  return 'NL';
 " "                                     /* skip whitespace */
 [/][*][^*]*[*]+([^/*][^*]*[*]+)*[/]     /* skip multiline comment */
 [admADM]{1,3}"="                        return 'STORE'
@@ -20,7 +20,7 @@
 ";"                                     return 'COLON'
 "("                                     return 'PAREN_OPEN'
 ")"                                     return 'PAREN_CLOSE'
-[a-zA-Z]([a-zA-Z0-9_])*                 return 'SYMBOL'
+[a-zA-Z]([a-zA-Z0-9_.$])*                 return 'SYMBOL'
 <<EOF>>                                 return 'EOF'
 .                                       return 'INVALID'
 
@@ -86,6 +86,10 @@ compute
     | SYMBOL PLUS SYMBOL
         {$$ = $1 + $2 + $3}
     | SYMBOL PLUS NUMBER
+        {$$ = $1 + $2 + $3}
+    | SYMBOL AND SYMBOL
+        {$$ = $1 + $2 + $3}
+    | SYMBOL OR SYMBOL
         {$$ = $1 + $2 + $3}
     | MINUS NUMBER
         {$$ = $1 + $2}

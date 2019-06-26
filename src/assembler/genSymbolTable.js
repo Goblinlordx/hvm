@@ -1,4 +1,4 @@
-const defaultSymbols = () => Array(15).fill(null).map((_, i) => i).reduce((a, n) => {
+const defaultSymbols = () => Array(16).fill(null).map((_, i) => i).reduce((a, n) => {
     a[`R${n}`] = {value: n, loc: []};
     return a;
 }, {
@@ -6,6 +6,7 @@ const defaultSymbols = () => Array(15).fill(null).map((_, i) => i).reduce((a, n)
     KBD: {value: 24576, loc: []},
     SP: {value: 0, loc: []},
     LCL: {value: 1, loc: []},
+    ARG: {value: 2, loc: []},
     THIS: {value: 3, loc: []},
     THAT: {value: 4, loc: []},
 });
@@ -14,7 +15,7 @@ export default nodes => {
     let idx = 0;
     const tbl = nodes.reduce((a, {type, symbol, loc}, i) => {
         if (type === "LABEL") {
-            if (a[symbol] && a[symbol].value) throw new Error(`Duplicate symbol: ${symbol} [${loc[0]}:${loc[1]}]`);
+            if (a[symbol] && a[symbol].labeled) throw new Error(`Duplicate symbol: ${symbol} [${loc[0]}:${loc[1]}]`);
             if (a[symbol]) {
                 a[symbol].value = i-idx;
                 a[symbol].loc.push(loc);
@@ -24,6 +25,7 @@ export default nodes => {
                     loc: [loc],
                 };
             }
+            a[symbol].labeled = true;
             idx = idx + 1;
         } else if (["C_INS", "A_INS"].some(t => t === type) && symbol) {
             if (a[symbol]) {
