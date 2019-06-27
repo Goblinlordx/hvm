@@ -5,9 +5,14 @@ const abtob = binArr => {
 
 const btoab = bin => {
     const arrBuf = new ArrayBuffer(bin.length);
-    const view = new Uint8Array(arrBuf);
+    const view = new Uint16Array(arrBuf);
     bin.split("").forEach((n, i) => {
-        view[i] = n.charCodeAt(0);
+        let idx = Math.floor(i/2);
+        if (i%2) {
+            view[idx] |= n.charCodeAt(0)
+        } else {
+            view[idx] = n.charCodeAt(0) << 8;
+        }
     });
     return arrBuf;
 };
@@ -37,8 +42,8 @@ const hacktob = str => {
     const x = raw.reduce(
         (a, n) =>
             a +
-            String.fromCharCode(parseInt(n.slice(8), 2)) +
-            String.fromCharCode(parseInt(n.slice(0, 8), 2)),
+            String.fromCharCode(parseInt(n.slice(0, 8), 2)) +
+            String.fromCharCode(parseInt(n.slice(8), 2)),
         ""
     );
     return x;
@@ -52,7 +57,7 @@ const btohack = str => {
         if (!(i % 2)) {
             a.push(value);
         } else {
-            a[a.length - 1] = value + a[a.length - 1];
+            a[a.length - 1] = a[a.length - 1] + value;
         }
         return a;
     }, []);

@@ -1,6 +1,6 @@
 const toBin = n => {
-    const lower = (n & 0xFF00) >>> 8;
-    const upper = (n & 0xFF) >>> 0;
+    const upper = (n & 0xFF00) >>> 8;
+    const lower = (n & 0xFF) >>> 0;
     return String.fromCharCode(upper) + String.fromCharCode(lower);
 }
 const aPrefix = n => n & 0xFFFF >>> 1;
