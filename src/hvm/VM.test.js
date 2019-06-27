@@ -2,7 +2,6 @@ import path from "path";
 import fs from "fs";
 
 import { VM } from "./";
-import { SIGABRT } from "constants";
 
 const loadExample = name => {
     const prog = fs.readFileSync(

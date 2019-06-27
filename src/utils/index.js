@@ -74,6 +74,4 @@ const atohack = str => btohack(atob(str));
 
 const abtohack = str => atohack(abtoa(str));
 
-window.hacktoa = hacktoa;
-
 export { abtoa, atoab, copyAB, hacktoa, hacktob, hacktoab, btohack, atohack, abtohack };
