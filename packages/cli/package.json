@@ -1,6 +1,6 @@
 {
   "name": "@hvm/cli",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "hvm internal CLI utility package",
   "main": "index.js",
   "bin": {
@@ -18,7 +18,7 @@
   "author": "Benjamin Baldivia",
   "license": "MIT",
   "dependencies": {
-    "@hvm/assemble": "^0.0.9",
+    "@hvm/assemble": "^0.0.10",
     "@hvm/convert": "0.0.5",
     "minimist": "^1.2.0"
   }

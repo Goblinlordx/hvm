@@ -1,6 +1,6 @@
 {
   "name": "@hvm/vm",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "hvm internal package for virtual machine",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "@hvm/convert": "0.0.5"
   },
   "devDependencies": {
-    "@hvm/examples": "0.0.9",
+    "@hvm/examples": "^0.0.10",
     "jest": "^24.8.0"
   }
 }

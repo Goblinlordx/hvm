@@ -1,6 +1,6 @@
 {
   "name": "@hvm/examples",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "internal hvm example files",
   "main": "index.js",
   "scripts": {

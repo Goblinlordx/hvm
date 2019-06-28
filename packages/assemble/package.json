@@ -1,6 +1,6 @@
 {
   "name": "@hvm/assemble",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "internal hvm assembler package",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "Benjamin Baldivia",
   "license": "MIT",
   "devDependencies": {
-    "@hvm/examples": "^0.0.9",
+    "@hvm/examples": "^0.0.10",
     "jest": "^24.8.0"
   },
   "dependencies": {
