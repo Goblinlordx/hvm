@@ -1,8 +1,9 @@
 {
   "name": "@hvm/examples",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "internal hvm example files",
   "main": "index.js",
+  "homepage": "https://github.com/Goblinlordx/hvm",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

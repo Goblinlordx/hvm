@@ -1,8 +1,9 @@
 {
   "name": "@hvm/vm",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "hvm internal package for virtual machine",
   "main": "index.js",
+  "homepage": "https://github.com/Goblinlordx/hvm",
   "scripts": {
     "test": "jest"
   },
@@ -16,10 +17,10 @@
   "author": "Benjamin Baldivia",
   "license": "MIT",
   "dependencies": {
-    "@hvm/convert": "0.0.5"
+    "@hvm/convert": "^0.0.11"
   },
   "devDependencies": {
-    "@hvm/examples": "^0.0.10",
+    "@hvm/examples": "^0.0.11",
     "jest": "^24.8.0"
   }
 }
