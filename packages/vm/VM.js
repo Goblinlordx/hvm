@@ -1,5 +1,21 @@
 /* eslint-disable */
-import { abtoa, atoab, copyAB, hacktoab } from "../utils";
+const convert = require('@hvm/convert');
+
+const atoab = convert('utf8', 'ab');
+const hacktoab = convert('hack', 'ab');
+
+const copyAB = (src, dest) => {
+    const a = new Uint8Array(src.buffer || src, src.byteOffset, src.byteLength);
+    const b = new Uint8Array(
+        dest.buffer || dest,
+        dest.byteOffset,
+        dest.byteLength
+    );
+    for (var i = 0; i < a.length && i < b.length; i++) {
+        // handle endianess
+        b[i+(i%2 ? -1 : 1)] = a[i];
+    }
+};
 
 function mask(length) {
     return Array.apply(null, { length }).reduce((a, _, i) => a + (1 << i), 0);
@@ -342,4 +358,4 @@ function hvm(stdlib, ffi, heap) {
     };
 }
 
-export default VM;
+module.exports = VM;

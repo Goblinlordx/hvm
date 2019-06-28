@@ -1,7 +1,7 @@
 const FB_ELE_SIZE = 16;
 const PIXEL_ON = 0xFF000000;
 const PIXEL_OFF = 0xFFFFFFFF;
-export default class BasicRenderer {
+module.exports = class BasicRenderer {
     constructor(ele) {
         ele.height = 256;
         ele.width = 512;

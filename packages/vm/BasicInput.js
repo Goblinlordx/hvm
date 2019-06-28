@@ -1,4 +1,4 @@
-export default class BasicInput {
+module.exports = class BasicInput {
     constructor() {
         const keys = [];
         const keydown = e => keys.push(e.keyCode);

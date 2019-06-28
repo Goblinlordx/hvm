@@ -1,14 +1,20 @@
-import VM from "./VM";
-import BasicInput from "./BasicInput";
-import BasicRenderer from "./BasicRenderer";
+const VM = require("./VM");
+const BasicInput = require("./BasicInput");
+const BasicRenderer = require("./BasicRenderer");
 
 const BasicHVM = ele => {
-    const HVM = new VM();
-    const inputter = new BasicInput();
-    const renderer = new BasicRenderer(ele);
-    HVM.addInputter(inputter.scan);
-    HVM.addRenderer(renderer.render);
-    return HVM;
+  const HVM = new VM();
+  const inputter = new BasicInput();
+  const renderer = new BasicRenderer(ele);
+  HVM.addInputter(inputter.scan);
+  HVM.addRenderer(renderer.render);
+  return HVM;
 };
 
-export { VM, BasicHVM, BasicInput, BasicRenderer };
+Object.assign(BasicHVM, {
+  VM,
+  BasicInput,
+  BasicRenderer
+});
+
+module.exports = BasicHVM;

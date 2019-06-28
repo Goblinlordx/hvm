@@ -1,13 +1,8 @@
-import path from "path";
-import fs from "fs";
-
-import { VM } from "./";
+const fs = require("fs");
+const { VM } = require(".");
 
 const loadExample = name => {
-    const prog = fs.readFileSync(
-        path.join(__dirname, "..", "examples", name + ".hack"),
-        "utf8"
-    );
+    const prog = fs.readFileSync(require.resolve(`@hvm/examples/${name}.hack`), 'utf8');
     return prog;
 };
 
