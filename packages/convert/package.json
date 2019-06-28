@@ -1,15 +1,15 @@
 {
   "name": "@hvm/convert",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "internal hvm package type conversion tool",
   "main": "index.js",
-  "private": false,
   "scripts": {
     "test": "jest"
   },
   "keywords": [
     "hack",
     "vm",
+    "b64",
     "nand2tetris"
   ],
   "author": "Benjamin Baldivia",
