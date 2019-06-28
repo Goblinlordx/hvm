@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const minimist = require("minimist");
 const fs = require("fs");
 const assemble = require("@hvm/assemble");
