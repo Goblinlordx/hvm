@@ -1,6 +1,6 @@
 {
-  "name": "convert",
-  "version": "0.0.1",
+  "name": "@hvm/convert",
+  "version": "0.0.2",
   "description": "hvm conversion tool",
   "main": "index.js",
   "scripts": {
