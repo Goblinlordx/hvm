@@ -68,7 +68,7 @@ const from = {
   bin: buf => {
     const ab = new ArrayBuffer(buf.byteLength);
     const v = new Uint8Array(ab);
-    for (let i; i < v.byteLength; i++) {
+    for (let i = 0; i < v.length; i++) {
       v[i] = buf[i];
     }
     return ab;
