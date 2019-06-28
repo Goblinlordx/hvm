@@ -1,0 +1,19 @@
+{
+  "name": "convert",
+  "version": "1.0.0",
+  "description": "hvm conversion tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "hack",
+    "vm",
+    "nand2tetris"
+  ],
+  "author": "Benjamin Baldivia",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
