@@ -1,6 +1,6 @@
-import {parser} from "./parser";
-import genSymbolTable from "./genSymbolTable";
-import nodeToBin from "./nodeToBin";
+const {parser} = require("./parser");
+const genSymbolTable = require("./genSymbolTable");
+const nodeToBin = require("./nodeToBin");
 
 const assemble = str => {
     const nodes = parser.parse(str);
@@ -17,4 +17,4 @@ const assemble = str => {
     return v.buffer;
 };
 
-export default assemble;
+module.exports = assemble;

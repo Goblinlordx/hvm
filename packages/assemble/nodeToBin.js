@@ -57,7 +57,7 @@ const COMPUTE_CODES = {
     "D|M": parseInt("1010101", 2),
 };
 
-export default table => node => {
+module.exports = table => node => {
     if (node.type === 'LABEL') return;
     if (node.type === 'A_INS') {
         let value = node.value ;

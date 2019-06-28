@@ -11,7 +11,7 @@ const defaultSymbols = () => Array(16).fill(null).map((_, i) => i).reduce((a, n)
     THAT: {value: 4, loc: []},
 });
 
-export default nodes => {
+module.exports = nodes => {
     let idx = 0;
     const tbl = nodes.reduce((a, {type, symbol, loc}, i) => {
         if (type === "LABEL") {

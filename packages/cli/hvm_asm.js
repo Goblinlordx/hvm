@@ -1,7 +1,7 @@
-import minimist from "minimist";
-import fs from "fs";
-import assemble from "../assemble";
-import convert from "../convert";
+const minimist = require("minimist");
+const fs = require("fs");
+const assemble = require("@hvm/assemble");
+const convert = require("@hvm/convert");
 
 const args = minimist(process.argv.slice(2), {
   alias: {

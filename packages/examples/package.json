@@ -1,0 +1,18 @@
+{
+  "name": "@hvm/examples",
+  "version": "0.0.5",
+  "description": "internal hvm example files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hvm",
+    "hack",
+    "vm",
+    "nand2tetris",
+    "examples"
+  ],
+  "author": "Benjamin Baldivia",
+  "license": "MIT"
+}
