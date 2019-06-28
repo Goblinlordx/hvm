@@ -1,0 +1,25 @@
+{
+  "name": "@hvm/assemble",
+  "version": "0.0.6",
+  "description": "internal hvm assembler package",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "hvm",
+    "hack",
+    "vm",
+    "nand2tetris",
+    "assembler"
+  ],
+  "author": "Benjamin Baldivia",
+  "license": "MIT",
+  "devDependencies": {
+    "@hvm/examples": "0.0.5",
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "@hvm/convert": "0.0.5"
+  }
+}
