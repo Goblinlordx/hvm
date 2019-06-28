@@ -1,0 +1,25 @@
+{
+  "name": "@hvm/cli",
+  "version": "0.0.7",
+  "description": "hvm internal CLI utility package",
+  "main": "index.js",
+  "bin": {
+    "hvm_asm": "hvm_asm.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hvm",
+    "nand2tetris",
+    "hack",
+    "cli"
+  ],
+  "author": "Benjamin Baldivia",
+  "license": "MIT",
+  "dependencies": {
+    "@hvm/assemble": "^0.0.7",
+    "@hvm/convert": "0.0.5",
+    "minimist": "^1.2.0"
+  }
+}
