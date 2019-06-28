@@ -1,8 +1,9 @@
 {
   "name": "@hvm/convert",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "internal hvm package type conversion tool",
   "main": "index.js",
+  "private": false,
   "scripts": {
     "test": "jest"
   },
