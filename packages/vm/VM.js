@@ -60,7 +60,7 @@ const formatToAb = (format, input) => {
 class VM {
     constructor() {
         const heap = new ArrayBuffer(
-            ROM_SIZE + RAM_SIZE + SCREEN_SIZE + REGISTER_SIZE
+            Math.max(0x20000, ROM_SIZE + RAM_SIZE + SCREEN_SIZE + REGISTER_SIZE)
         );
         const renderers = [];
         const inputters = [];
@@ -353,8 +353,8 @@ function hvm(stdlib, ffi, heap) {
             step();
     }
     return {
-        step,
-        step_cycles
+        step: step,
+        step_cycles: step_cycles
     };
 }
 
