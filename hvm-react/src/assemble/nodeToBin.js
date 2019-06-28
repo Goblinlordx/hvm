@@ -1,7 +1,7 @@
 const toBin = n => {
-    const upper = (n & 0xFF00) >>> 8;
-    const lower = (n & 0xFF) >>> 0;
-    return String.fromCharCode(upper) + String.fromCharCode(lower);
+    const upper = (n >>> 8) & 0xFF;
+    const lower = (n & 0xFF);
+    return new Uint8Array([upper, lower]);
 }
 const aPrefix = n => n & 0xFFFF >>> 1;
 const cPrefix = n => n | 7 << (16 - 3);
