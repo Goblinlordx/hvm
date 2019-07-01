@@ -29,8 +29,14 @@ it("causes an error when calling with type that doesn't exist", () => {
 
 it("converts from/to b64 properly", () => {
   const b64 = convert("utf8", "b64");
-  expect(b64("Test Hello World")).toMatchInlineSnapshot(
+  const utf8 = convert("b64", "utf8");
+  const to = b64("Test Hello World");
+  const from = utf8(to);
+  expect(to).toMatchInlineSnapshot(
     `"VGVzdCBIZWxsbyBXb3JsZA=="`
+  );
+  expect(from).toMatchInlineSnapshot(
+    `"Test Hello World"`
   );
 });
 
