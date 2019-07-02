@@ -1,6 +1,6 @@
 {
   "name": "@hvm/assemble",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "internal hvm assembler package",
   "main": "index.js",
   "homepage": "https://github.com/Goblinlordx/hvm",
