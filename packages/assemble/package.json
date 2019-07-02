@@ -21,6 +21,7 @@
     "jest": "^24.8.0"
   },
   "dependencies": {
-    "@hvm/convert": "^0.0.12"
+    "@hvm/convert": "^0.0.12",
+    "@hvm/definitions": "0.0.12"
   }
 }
