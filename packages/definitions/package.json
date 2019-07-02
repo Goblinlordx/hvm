@@ -1,0 +1,11 @@
+{
+  "name": "@hvm/definitions",
+  "version": "0.0.11",
+  "description": "hvm internal package for definitions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Benjamin Baldivia",
+  "license": "MIT"
+}
