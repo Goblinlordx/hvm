@@ -1,6 +1,6 @@
 {
   "name": "@hvm/cli",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "hvm internal CLI utility package",
   "main": "index.js",
   "homepage": "https://github.com/Goblinlordx/hvm",
@@ -19,8 +19,8 @@
   "author": "Benjamin Baldivia",
   "license": "MIT",
   "dependencies": {
-    "@hvm/assemble": "^0.0.11",
-    "@hvm/convert": "^0.0.11",
+    "@hvm/assemble": "^0.0.12",
+    "@hvm/convert": "^0.0.12",
     "minimist": "^1.2.0"
   }
 }
