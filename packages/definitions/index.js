@@ -61,4 +61,4 @@ const computeLkup = {
 
 const computeRLkup = rLkup(computeLkup);
 
-export { jmpLkup, jmpRLkup, storeLkup, storeRLkup, computeLkup, computeRLkup };
+module.exports = { jmpLkup, jmpRLkup, storeLkup, storeRLkup, computeLkup, computeRLkup };
